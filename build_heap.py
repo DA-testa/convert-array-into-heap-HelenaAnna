@@ -45,14 +45,14 @@ def main():
 
     if input_type == "I":
         n = int(input())
-        data = list(map(int, input().split()))
+        data = input().split(" ")
 
     elif input_type == "F":
-        filename = input().strip()
+        filename = input()
     
         with open(f"tests/{filename}") as file:
             n = int(file.readline())
-            data = list(map(int, file.readline().split()))
+            data = file.readline().split(" ")
          
     else:
         print("Invalid input type", input_type)
@@ -61,7 +61,7 @@ def main():
     # input from keyboard
 
     # checks if lenght of data is the same as the said lenght
-    assert len(data) == n
+    assert len(data) == n, f
 
     # calls function to assess the data 
     # and give back all swaps
@@ -73,6 +73,7 @@ def main():
     print(len(swaps))
 
     # output all swaps
+
     for i, j in swaps:
         print(i, j)
 
