@@ -50,17 +50,15 @@ def main():
     elif input_type == "F":
         filename = input()
     
-    with open(f"tests/{filename}") as file:
-         n = int(file.readline())
-         data = file.readline().split(" ")
+        with open(f"tests/{filename}") as file:
+            n = int(file.readline())
+            data = file.readline().split(" ")
          
-         else:
-            print("Invalid input type", input_type)
-    exit()
+    else:
+        print("Invalid input type", input_type)
+        exit()
     
     # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
 
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
