@@ -62,7 +62,7 @@ def main():
 
     # checks if lenght of data is the same as the said lenght
     if len(data) != n:
-        print(f)
+        print(n)
         exit()
 
     # calls function to assess the data 
@@ -72,7 +72,7 @@ def main():
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
     if len(swaps) >= 4 * n:
-        print(f)
+        print(4 * n)
         exit()
 
     print(len(swaps))
