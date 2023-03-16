@@ -45,14 +45,14 @@ def main():
 
     if input_type == "I":
         n = int(input())
-        data = input().split(" ")
+        data = list(map(int, input().split()))
 
     elif input_type == "F":
-        filename = input()
+        filename = input().strip()
     
         with open(f"tests/{filename}") as file:
             n = int(file.readline())
-            data = file.readline().split(" ")
+            data = list(map(int, file.readline().split()))
          
     else:
         print("Invalid input type", input_type)
@@ -73,7 +73,6 @@ def main():
     print(len(swaps))
 
     # output all swaps
-    print(len(swaps))
     for i, j in swaps:
         print(i, j)
 
