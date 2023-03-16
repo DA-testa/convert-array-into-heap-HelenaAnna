@@ -7,17 +7,17 @@ def build_heap(data):
     # try to achieve  O(n) and not O(n2)
     n = len(data)
     for i in range(n // 2, -1, -1):
-        swaps = uz_leju(data, i, n, swaps)
+        swaps = heapify(data, i, n, swaps)
 
     for i in range (n-1, 0, -1):
         data[0], data[i] = data[i], data[0]
         swaps.append((0,i))
 
-        swaps = uz_leju(data, 0, i, swaps)
+        swaps = heapify(data, 0, i, swaps)
 
     return swaps
 
-def uz_leju(data, i, n, swaps):
+def heapify(data, i, n, swaps):
     while i * 2 +1 < n:
         j = i * 2 + 1
 
@@ -61,7 +61,9 @@ def main():
     # input from keyboard
 
     # checks if lenght of data is the same as the said lenght
-    assert len(data) == n, f
+    if len(data) != n:
+        print(n)
+        exit()
 
     # calls function to assess the data 
     # and give back all swaps
@@ -69,7 +71,10 @@ def main():
 
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
-    assert len(swaps) < 4 * n
+    if len(swaps) >= 4 * n:
+        print(4 * n)
+        exit()
+
     print(len(swaps))
 
     # output all swaps
