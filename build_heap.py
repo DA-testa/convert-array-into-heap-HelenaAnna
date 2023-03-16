@@ -53,9 +53,9 @@ def main():
     with open(f"tests/{filename}") as file:
          n = int(file.readline())
          data = file.readline().split(" ")
-
-    else:
-        print("Invalid input type", input_type)
+         
+         else:
+            print("Invalid input type", input_type)
     exit()
     
     # input from keyboard
