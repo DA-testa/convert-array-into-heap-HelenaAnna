@@ -9,7 +9,7 @@ def build_heap(data):
         while i > 0 and data[(i -1 ) // 2] > data[i]:
             data[j], data[(i - 1) // 2] = data[(i - 1) // 2], data[i]
             swaps.append(((i - 1) // 2, i))
-            i = (j - 1) // 2
+            i = (i - 1) // 2
 
     return swaps
 
