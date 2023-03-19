@@ -7,7 +7,7 @@ def build_heap(data):
     n =len(data)
 
     for i in range(n // 2 - 1, -1, -1):
-        while true:
+        while True:
             maz = i 
             left = 2 * i + 1
             right = 2 * i + 2 if 2 * i + 2 < n else left
