@@ -1,16 +1,29 @@
 # python3
+def heapify(data, swaps, i, n):
+    maz = i 
+    left = 2 * i + 1
+    right = 2 * i + 2
 
+    if left < n and data[maz] > data [left]:
+        maz = left
+
+    if right < n and data[maz] > data[right]:
+        maz = right
+
+    if i != maz:
+        data[i], data[maz] = data[maz], data[i]
+        swaps.append((i, maz))
+        heapify(data, swaps, maz, n)
 
 def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-    for i in range(1, len(data)):
-        j = i
-        while j > 0 and data[(j - 1) // 2] > data[j]:
-            swaps.append(((j - 1) // 2, j))
-            data[(j - 1) // 2], data[j] = data[j], data[(j - 1) // 2]
-            j = (j - 1) // 2
+    n =len(data)
+
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(data, swaps, i, n)
+        
 
     return swaps
 
@@ -51,7 +64,7 @@ def main():
 
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
-    if len(swaps) > 4 * n:
+    if len(swaps) >= 4 * n:
         print(4 * n)
         exit()
 
