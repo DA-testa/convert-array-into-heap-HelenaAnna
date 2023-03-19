@@ -63,7 +63,7 @@ def main():
 
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
-    if len(swaps) >= 4 * n:
+    if len(swaps) > 4 * n:
         print(4 * n)
         exit()
 
