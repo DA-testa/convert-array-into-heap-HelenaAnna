@@ -6,13 +6,12 @@ def build_heap(data):
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
     n = len(data)
-    for i in range(n // 2, -1, -1):
+    for i in range(n // 2, -1, -1, -1):
         swaps = uz_leju(data, i, n, swaps)
 
     for i in range (n-1, 0, -1):
         data[0], data[i] = data[i], data[0]
-        swaps.append((0,i))
-
+        swaps.append((0, i))
         swaps = uz_leju(data, 0, i, swaps)
 
     return swaps
@@ -28,7 +27,7 @@ def uz_leju(data, i, n, swaps):
             break
 
         data[i], data[j] = data[j], data[i]
-        swaps.append((i - 1, j - 1))
+        swaps.append((i, j))
 
         i = j
 
@@ -45,14 +44,14 @@ def main():
 
     if input_type == "I":
         n = int(input())
-        data = input().split(" ")
+        data = list(map(int, input().split()))
 
     elif input_type == "F":
         filename = input()
     
         with open(f"tests/{filename}") as file:
             n = int(file.readline())
-            data = file.readline().split(" ")
+            data = list(map(int, file.readline().split()))
          
     else:
         print("Invalid input type", input_type)
