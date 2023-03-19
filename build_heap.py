@@ -5,31 +5,12 @@ def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-    n = len(data)
-    for i in range(n // 2, -1, -1):
-        swaps = uz_leju(data, i, n, swaps)
-
-    for i in range (n - 1, 0, -1):
-        data[0], data[i] = data[i], data[0]
-        swaps.append((0, i))
-        swaps = uz_leju(data, 0, i, swaps)
-
-    return swaps
-
-def uz_leju(data, i, n, swaps):
-    while i * 2 +1 < n:
-        j = i * 2 + 1
-
-        if j + 1 < n and data[j + 1] > data[j]:
-            j += 1
-
-        if data[i] >= data[j]:
-            break
-
-        data[i], data[j] = data[j], data[i]
-        swaps.append((i, j))
-
-        i = j
+    for i in range(1, len(data)):
+        while i > 0 and data[(i-1) // 2] > data[i]:
+            data[i], data[j] = data[j], data[i]
+            swaps.append((j, i))
+            swaps = uz_leju(data, 0, i, swaps)
+            i = j
 
     return swaps
 
