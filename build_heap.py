@@ -7,10 +7,10 @@ def build_heap(data):
     # try to achieve  O(n) and not O(n2)
    for i in range(1, len(data)):
         j = i
-        while j > 0 and data[(j-1) // 2] > data[j]:
-            data[j], data[(j-1) // 2] = data[(j-1) // 2], data[j]
-            swaps.append(((j-1) // 2, j))
-            j = (j-1) // 2
+        while j > 0 and data[(j -1 ) // 2] > data[j]:
+            data[j], data[(j - 1) // 2] = data[(j - 1) // 2], data[j]
+            swaps.append(((j - 1) // 2, j))
+            j = (j - 1) // 2
 
     return swaps
 
