@@ -71,8 +71,10 @@ def main():
 
     # output all swaps
 
-    #for i, j in swaps:
-     #   print(i, j, end=" ")
+    for i, j in swaps:
+          print(i, j, end="")
+          if i != swaps[-1][0] or j != swaps[-1][1]:
+            print(" ", end="")
 
 
 if __name__ == "__main__":
